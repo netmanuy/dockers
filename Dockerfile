@@ -1,10 +1,10 @@
 FROM php:7.2-apache
-LABEL maintainer="Sebastian Delgado (netman) sebastian@liveclicker.com"
+LABEL maintainer="Sebastian Delgado (netman) netmanzion@gmail.com"
 
-#FROM php:7.2-fpm
+# Copy source code into html folder
 COPY src/ /var/www/html/
 
-# Create temporal file
+# Create temporal file and setup apache permission
 RUN mkdir -p /var/www/html/tmp && chown www-data.www-data /var/www/html/tmp 
 
 # Update Image and install ImageMagick
@@ -26,7 +26,3 @@ RUN apt-get clean alll
 
 # Remove not necessary files
 RUN rm -rf /var/lib/apt/lists/*
-
-#RUN sed -i -e 's/listen.*/listen = 0.0.0.0:9000/' /usr/local/etc/php-fpm.conf
-
-#CMD ["php-fpm"]
