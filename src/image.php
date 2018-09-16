@@ -4,7 +4,7 @@
 if(isset($_GET['text'])) {
     $text_to_right = $_GET['text'];
 } else {
-    $text_to_right = "Testing Images..";
+    $text_to_right = "Testing images version 0.0.1";
 }
 
 // Create a new Image
